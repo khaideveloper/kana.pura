@@ -1,12 +1,13 @@
 {
   "name": "kana.pura",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "Khai",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ionic serve -l",
+    "android": "ionic cap run android -l --external",
     "build": "ng build",
+    "sync": "npx cap copy",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -19,8 +20,11 @@
     "@angular/platform-browser": "~11.0.5",
     "@angular/platform-browser-dynamic": "~11.0.5",
     "@angular/router": "~11.0.5",
+    "@capacitor/android": "^2.4.6",
     "@capacitor/core": "2.4.6",
     "@ionic/angular": "^5.5.2",
+    "@ngx-translate/core": "^13.0.0",
+    "@ngx-translate/http-loader": "^6.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
@@ -33,6 +37,7 @@
     "@angular/language-service": "~11.0.5",
     "@capacitor/cli": "2.4.6",
     "@ionic/angular-toolkit": "^2.3.3",
+    "@ionic/lab": "3.2.10",
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
