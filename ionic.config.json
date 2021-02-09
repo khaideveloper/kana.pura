@@ -1,0 +1,7 @@
+{
+  "name": "kana.pura",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
