@@ -3,5 +3,13 @@
   "GAME_MODE_1": "Fill the Table",
   "GAME_MODE_2": "Find the Character",
   "GAME_MODE_3": "Character Guess",
-  "GAME_MODE_4": "Write the Character"
+  "GAME_MODE_4": "Write the Character",
+  "ENABLE_ALL": "Enable All",
+  "ENABLE_HIRAGANA": "Enable Hiragana",
+  "ENABLE_KATAKANA": "Enable Katakana",
+  "DISABLE_ALL": "Disable All",
+  "DISABLE_HIRAGANA": "Disable Hiragana",
+  "DISABLE_KATAKANA": "Disable Katakana",
+  "ENABLE_ALL_ALTERNATIVE": "All Alternative",
+  "ENABLE_NO_ALTERNATIVE": "No Alternative"
 }

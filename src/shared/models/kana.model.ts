@@ -388,6 +388,7 @@ export class KANA_FILTER {
   toggle_group(kana: 'HIRAGANA' | 'KATAKANA', group: number, force?: boolean) {
     if(kana == null || group == null) { return; }
     KANA_DICTIONARY[kana][group].forEach((element, index) => {
+      console.log(group + ': ' + index);
       this.toggle_element(kana, group, index, force);
     });
   }

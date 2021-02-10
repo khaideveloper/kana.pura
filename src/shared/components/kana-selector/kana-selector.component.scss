@@ -25,10 +25,46 @@
     border-bottom: 1px solid black;
   }
 
+  ion-button {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .button1, .button2, .button3 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .button1 {
+    ion-button {
+      width: 75%;
+    }
+  }
+
+  .button2, .button3 {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 0.2em;
+
+    ion-button {
+      width: calc(50% - 0.4em);
+      margin-right: 0.2em;
+      margin-bottom: 0.2em;
+    }
+  }
+
   table {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+
+    .disabled {
+      background-color: var(--ion-color-medium) !important;
+      color: var(--ion-color-medium-contrast) !important;
+    }
 
     td, th {
       width: 40px;
@@ -37,6 +73,7 @@
       justify-content: center;
       align-items: center;
       margin-bottom: 5px;
+      transition: background-color 0.25s ease-in-out;
     }
 
     td {

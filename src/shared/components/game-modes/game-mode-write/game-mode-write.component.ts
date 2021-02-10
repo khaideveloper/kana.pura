@@ -1,3 +1,4 @@
+import { GameService } from './../../../services/game/game.service';
 import { Component, OnInit } from '@angular/core';
 import { KANA_DICTIONARY_ELEMENT, KANA_FILTER, random_kana } from 'src/shared/models/kana.model';
 
@@ -6,32 +7,55 @@ import { KANA_DICTIONARY_ELEMENT, KANA_FILTER, random_kana } from 'src/shared/mo
   templateUrl: './game-mode-write.component.html',
   styleUrls: ['./game-mode-write.component.scss'],
 })
-export class GameModeWriteComponent implements OnInit {
+export class GameModeWriteComponent {
 
-  element: KANA_DICTIONARY_ELEMENT;
-  test = new KANA_FILTER();
+  /** Element to guess */
+  guess: KANA_DICTIONARY_ELEMENT;
 
-  value: string;
+  /** Testo inserito nell'input */
+  input: string;
 
-  current: number = 0;
+  /** Numero di tentativi corretti */
+  correct: number = 0;
+
+  /** Numero di tentativi errati */
+  incorrect: number = 0;
+
+  /** Numero di tentativi */
   total: number = 0;
 
-  constructor() {
-
-    this.test.toggle_all();
-    this.element = random_kana(this.test);
-
+  constructor(
+    public game_service: GameService,
+  ) {
   }
 
-  ngOnInit() {}
+  /** Inizia a giocare */
+  start() {
+    this.new_guess();
+  }
 
-  faf() {
-    if(this.element.values.includes(this.value.toLowerCase())) {
-      this.current++;
+  /** Cambia l'elemento da indovinare */
+  new_guess() {
+    this.guess = random_kana(this.game_service.filter);
+  }
+
+  /** Prova a indovinare l'elemento */
+  try_guess() {
+    if(this.guess.values.includes(this.input.toLowerCase())) {
+      this.correct++;
+    } else {
+      this.incorrect++;
     }
     this.total++;
-    this.value = '';
-    this.element = random_kana(this.test);
+    this.input = '';
+    this.new_guess();
+  }
+
+  input_filter(event: KeyboardEvent) {
+    console.log(event);
+    if(event.key === "Enter") {
+      this.try_guess();
+    }
   }
 
 }

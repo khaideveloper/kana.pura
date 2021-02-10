@@ -1,9 +1,15 @@
 <app-game-header></app-game-header>
 
-<div class="panel"> {{ (this.element != null) ? this.element.kana : '' }} </div>
-
-<div class="input">
-  <ion-input [(ngModel)]="value" (keypress)="$event.keyCode === 13 ? faf() : null"></ion-input>
+<div class="panel">
+  <ion-icon name="play" (click)="this.start()" *ngIf="this.guess == null"></ion-icon>
+  {{ (this.guess != null) ? this.guess.kana : '' }}
 </div>
 
-<div class="bar">{{ this.current + '/' + this.total }}</div>
+<div class="input" *ngIf="this.guess != null">
+  <ion-input [(ngModel)]="input" (keypress)="input_filter($event)"></ion-input>
+</div>
+
+<div class="bar" *ngIf="this.guess != null">
+  <span>{{ this.correct }}</span>/<span>{{ this.total }}</span>&nbsp;
+  <span styele="color: red;">({{ this.incorrect }})</span>
+</div>
