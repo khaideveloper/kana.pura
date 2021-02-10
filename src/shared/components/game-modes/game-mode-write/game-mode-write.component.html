@@ -1,7 +1,6 @@
 <app-game-header></app-game-header>
 
 <div class="panel">
-  <ion-icon name="play" (click)="this.start()" *ngIf="this.guess == null"></ion-icon>
   {{ (this.guess != null) ? this.guess.kana : '' }}
 </div>
 

@@ -12,34 +12,30 @@ export class GameModeWriteComponent {
   /** Element to guess */
   guess: KANA_DICTIONARY_ELEMENT;
 
-  /** Testo inserito nell'input */
+  /** Input inserted by the user */
   input: string;
 
-  /** Numero di tentativi corretti */
+  /** Number of correct guesses */
   correct: number = 0;
 
-  /** Numero di tentativi errati */
+  /** Number of incorrect guesses */
   incorrect: number = 0;
 
-  /** Numero di tentativi */
+  /** Total number of guesses */
   total: number = 0;
 
   constructor(
     public game_service: GameService,
   ) {
-  }
-
-  /** Inizia a giocare */
-  start() {
     this.new_guess();
   }
 
-  /** Cambia l'elemento da indovinare */
+  /** Change the symbol to guess */
   new_guess() {
     this.guess = random_kana(this.game_service.filter);
   }
 
-  /** Prova a indovinare l'elemento */
+  /** User trial to guess the symbol */
   try_guess() {
     if(this.guess.values.includes(this.input.toLowerCase())) {
       this.correct++;

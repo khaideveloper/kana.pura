@@ -424,7 +424,7 @@ export function random_kana(filter: KANA_FILTER) : KANA_DICTIONARY_ELEMENT {
   let numbers = filter.get_numbers(<'HIRAGANA' | 'KATAKANA'>kana);
 
   let element = last_element;
-  while(last_element === element) {
+  if(last_element === element) {
     let group = random(0, numbers.length);
     element = KANA_DICTIONARY[kana][group][numbers[group][random(0, numbers[group].length)]];
   }
