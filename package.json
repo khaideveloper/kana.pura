@@ -22,9 +22,13 @@
     "@angular/router": "~11.0.5",
     "@capacitor/android": "^2.4.6",
     "@capacitor/core": "2.4.6",
+    "@ionic-native/core": "^5.31.1",
+    "@ionic-native/screen-orientation": "^5.31.1",
     "@ionic/angular": "^5.5.2",
     "@ngx-translate/core": "^13.0.0",
     "@ngx-translate/http-loader": "^6.0.0",
+    "cordova-plugin-screen-orientation": "^3.0.2",
+    "es6-promise-plugin": "^4.2.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

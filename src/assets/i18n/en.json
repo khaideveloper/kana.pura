@@ -1,3 +1,7 @@
 {
-  "hello": "hello"
+  "GAME_MODE_0": "Drag the Character",
+  "GAME_MODE_1": "Fill the Table",
+  "GAME_MODE_2": "Find the Character",
+  "GAME_MODE_3": "Character Guess",
+  "GAME_MODE_4": "Write the Character"
 }

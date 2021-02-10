@@ -1,3 +1,7 @@
 {
-  "hello": "ciao"
+  "GAME_MODE_0": "Drag to ",
+  "GAME_MODE_1": "B",
+  "GAME_MODE_2": "C",
+  "GAME_MODE_3": "D",
+  "GAME_MODE_4": "E"
 }

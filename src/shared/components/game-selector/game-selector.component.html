@@ -1,0 +1,6 @@
+<div class="blocks">
+  <div class="block" *ngFor="let mode of this.game_service._GAME_MODES; let i = index"
+    (click)="this.game_service.changeMode(i);">
+    {{ ('GAME_MODE_' + mode) | translate }}
+  </div>
+</div>

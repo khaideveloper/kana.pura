@@ -1,0 +1,9 @@
+<app-game-header></app-game-header>
+
+<div class="panel"> {{ (this.element != null) ? this.element.kana : '' }} </div>
+
+<div class="input">
+  <ion-input [(ngModel)]="value" (keypress)="$event.keyCode === 13 ? faf() : null"></ion-input>
+</div>
+
+<div class="bar">{{ this.current + '/' + this.total }}</div>

@@ -1,0 +1,27 @@
+<div class="container">
+
+  <div class="header">
+
+    <span>{{ 'KANA_SELECTOR' | translate }}</span>
+
+    <ion-button>
+      <ion-icon name="close"></ion-icon>
+    </ion-button>
+
+  </div>
+
+  <table>
+    <tr *ngFor="let group of _KANA_DICTIONARY.HIRAGANA; let i = index">
+      <th>{{ HIRAGANA_TH[i] }}</th>
+      <td *ngFor="let element of group">{{ element.kana }}</td>
+    </tr>
+  </table>
+
+  <table>
+    <tr *ngFor="let group of _KANA_DICTIONARY.KATAKANA; let i = index">
+      <th>{{ KATAKANA_TH[i] }}</th>
+      <td *ngFor="let element of group">{{ element.kana }}</td>
+    </tr>
+  </table>
+
+</div>

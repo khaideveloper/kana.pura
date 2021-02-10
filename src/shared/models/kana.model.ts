@@ -233,22 +233,6 @@ export const KANA_DICTIONARY : {
       { kana: 'ン', values: ['n'] },
     ],
     [
-      { kana: 'シ', values: ['shi', 'si'] },
-      { kana: 'ツ', values: ['tsu', 'tu'] },
-      { kana: 'ソ', values: ['so'] },
-      { kana: 'ン', values: ['n'] },
-      { kana: 'ノ', values: ['no'] },
-    ],
-    [
-      { kana: 'ウ', values: ['u'] },
-      { kana: 'フ', values: ['fu', 'hu'] },
-      { kana: 'ワ', values: ['wa'] },
-      { kana: 'ラ', values: ['ra'] },
-      { kana: 'ス', values: ['su'] },
-      { kana: 'ヌ', values: ['nu'] },
-      { kana: 'ヲ', values: ['wo', 'o'] },
-    ],
-    [
       { kana: 'ガ', values: ['ga'] },
       { kana: 'ギ', values: ['gi'] },
       { kana: 'グ', values: ['gu'] },

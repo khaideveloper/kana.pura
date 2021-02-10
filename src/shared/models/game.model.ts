@@ -1,0 +1,3 @@
+export enum GAME_MODES {
+  DRAG, FILL, FIND, GUESS, WRITE
+}
