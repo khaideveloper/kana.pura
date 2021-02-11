@@ -1,3 +1,4 @@
+import { GameService } from 'src/shared/services/game/game.service';
 import { KanaSelectorComponent } from './../kana-selector/kana-selector.component';
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
@@ -10,7 +11,8 @@ import { ModalController } from '@ionic/angular';
 export class GameHeaderComponent implements OnInit {
 
   constructor(
-    public modalController: ModalController
+    public game_service: GameService,
+    public modalController: ModalController,
   ) {
 
   }

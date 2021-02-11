@@ -1,22 +1,25 @@
-.blocks {
+.container {
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  position: relative;
 
-  .block {
-    background-color: var(--ion-color-primary);
-    color: var(--ion-color-primary-contrast);
-    height: 40vw;
-    width: calc(50% - 5px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 5px;
-    margin-right: 5px;
-    font-size: 1.1em;
-    padding: 0.5em;
-    text-align: center;
+  .show {
+    opacity: 1 !important;
+    pointer-events: all !important;
+  }
+
+  .view {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease-in-out;
+
+    app-game-selector-grid,
+    app-game-selector-full {
+      width: 100%;
+      height: 100%;
+    }
   }
 }

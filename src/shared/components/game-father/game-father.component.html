@@ -1,11 +1,13 @@
 <app-game-selector *ngIf="this.game_service.mode == null"></app-game-selector>
 
-<app-game-mode-drag *ngIf="this.game_service.mode === 0"></app-game-mode-drag>
+<app-game-header *ngIf="this.game_service.mode != null"></app-game-header>
 
-<app-game-mode-fill *ngIf="this.game_service.mode === 1"></app-game-mode-fill>
+<app-game-mode-write *ngIf="this.game_service.mode === 0"></app-game-mode-write>
+
+<app-game-mode-guess *ngIf="this.game_service.mode === 1"></app-game-mode-guess>
 
 <app-game-mode-find *ngIf="this.game_service.mode === 2"></app-game-mode-find>
 
-<app-game-mode-guess *ngIf="this.game_service.mode === 3"></app-game-mode-guess>
+<app-game-mode-drag *ngIf="this.game_service.mode === 3"></app-game-mode-drag>
 
-<app-game-mode-write *ngIf="this.game_service.mode === 4"></app-game-mode-write>
+<app-game-mode-fill *ngIf="this.game_service.mode === 4"></app-game-mode-fill>

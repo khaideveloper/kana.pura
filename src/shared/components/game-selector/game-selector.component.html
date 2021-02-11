@@ -1,6 +1,13 @@
-<div class="blocks">
-  <div class="block" *ngFor="let mode of this.game_service._GAME_MODES; let i = index"
-    (click)="this.game_service.changeMode(i);">
-    {{ ('GAME_MODE_' + mode) | translate }}
+<div class="container">
+
+  <!-- Grid View -->
+  <div class="view" [class.show]="this.game_service.current_view === 0">
+    <app-game-selector-grid></app-game-selector-grid>
   </div>
+
+  <!-- Full View -->
+  <div class="view" [class.show]="this.game_service.current_view === 1">
+    <app-game-selector-full></app-game-selector-full>
+  </div>
+
 </div>
