@@ -35,6 +35,9 @@ export class GameService {
   /** Currently active gamemode */
   selected_gamemode: GRID_GAMEMODE;
 
+  /** Reference to the kana selector modal */
+  kanaModal: HTMLIonModalElement;
+
   constructor() {
     this.filter = new KANA_FILTER();
     this.filter.toggle_all();

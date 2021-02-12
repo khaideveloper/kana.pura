@@ -1,3 +1,5 @@
+import { EventEmitter } from "@angular/core";
+
 export interface KANA_DICTIONARY_ELEMENT {
   kana: string;
   values: string[];
@@ -363,6 +365,7 @@ export class KANA_FILTER {
   hasKATAKANA: boolean = false;
   HIRAGANA_GROUPS: boolean[][] = [];
   KATAKANA_GROUPS: boolean[][] = [];
+  filterChanged: EventEmitter<any>;
 
   constructor() {
     KANA_DICTIONARY.HIRAGANA.forEach((group) => {
@@ -398,7 +401,6 @@ export class KANA_FILTER {
       return;
     }
     KANA_DICTIONARY[kana][group].forEach((element, index) => {
-      console.log(group + ': ' + index);
       this.toggle_element(kana, group, index, force);
     });
   }

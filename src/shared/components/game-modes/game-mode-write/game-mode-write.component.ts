@@ -1,17 +1,17 @@
 import { GameService } from './../../../services/game/game.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import {
   KANA_DICTIONARY_ELEMENT,
-  KANA_FILTER,
   random_kana,
 } from 'src/shared/models/kana.model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-game-mode-write',
   templateUrl: './game-mode-write.component.html',
   styleUrls: ['./game-mode-write.component.scss'],
 })
-export class GameModeWriteComponent {
+export class GameModeWriteComponent implements OnDestroy {
   /** Element to guess */
   guess: KANA_DICTIONARY_ELEMENT;
 
@@ -27,8 +27,23 @@ export class GameModeWriteComponent {
   /** Total number of guesses */
   total: number = 0;
 
+  /** Filter changed subscription */
+  filterchangeSub: Subscription;
+
   constructor(public game_service: GameService) {
     this.new_guess();
+    //Event on filter change
+    this.filterchangeSub = this.game_service.filter.filterChanged.subscribe(
+      () => {
+        this.new_guess();
+      }
+    );
+  }
+
+  ngOnDestroy() {
+    if (this.filterchangeSub != null) {
+      this.filterchangeSub.unsubscribe();
+    }
   }
 
   /** Change the symbol to guess */
