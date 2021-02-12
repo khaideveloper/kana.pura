@@ -9,8 +9,8 @@ describe('GameModeDragComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GameModeDragComponent ],
-      imports: [IonicModule.forRoot()]
+      declarations: [GameModeDragComponent],
+      imports: [IonicModule.forRoot()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(GameModeDragComponent);

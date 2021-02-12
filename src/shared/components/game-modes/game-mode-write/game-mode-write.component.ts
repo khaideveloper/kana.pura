@@ -1,6 +1,10 @@
 import { GameService } from './../../../services/game/game.service';
 import { Component, OnInit } from '@angular/core';
-import { KANA_DICTIONARY_ELEMENT, KANA_FILTER, random_kana } from 'src/shared/models/kana.model';
+import {
+  KANA_DICTIONARY_ELEMENT,
+  KANA_FILTER,
+  random_kana,
+} from 'src/shared/models/kana.model';
 
 @Component({
   selector: 'app-game-mode-write',
@@ -8,7 +12,6 @@ import { KANA_DICTIONARY_ELEMENT, KANA_FILTER, random_kana } from 'src/shared/mo
   styleUrls: ['./game-mode-write.component.scss'],
 })
 export class GameModeWriteComponent {
-
   /** Element to guess */
   guess: KANA_DICTIONARY_ELEMENT;
 
@@ -24,9 +27,7 @@ export class GameModeWriteComponent {
   /** Total number of guesses */
   total: number = 0;
 
-  constructor(
-    public game_service: GameService,
-  ) {
+  constructor(public game_service: GameService) {
     this.new_guess();
   }
 
@@ -37,7 +38,7 @@ export class GameModeWriteComponent {
 
   /** User trial to guess the symbol */
   try_guess() {
-    if(this.guess.values.includes(this.input.toLowerCase())) {
+    if (this.guess.values.includes(this.input.toLowerCase())) {
       this.correct++;
     } else {
       this.incorrect++;
@@ -49,9 +50,8 @@ export class GameModeWriteComponent {
 
   input_filter(event: KeyboardEvent) {
     console.log(event);
-    if(event.key === "Enter") {
+    if (event.key === 'Enter') {
       this.try_guess();
     }
   }
-
 }

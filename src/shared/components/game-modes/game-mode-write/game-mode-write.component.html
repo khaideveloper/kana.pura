@@ -1,5 +1,5 @@
 <div class="panel">
-  {{ (this.guess != null) ? this.guess.kana : '' }}
+  {{ this.guess != null ? this.guess.kana : "" }}
 </div>
 
 <div class="input" *ngIf="this.guess != null">
@@ -7,6 +7,8 @@
 </div>
 
 <div class="bar" *ngIf="this.guess != null">
-  <span>{{ this.correct }}</span>/<span>{{ this.total }}</span>&nbsp;
+  <span>{{ this.correct }}</span
+  >/<span>{{ this.total }}</span
+  >&nbsp;
   <span styele="color: red;">({{ this.incorrect }})</span>
 </div>

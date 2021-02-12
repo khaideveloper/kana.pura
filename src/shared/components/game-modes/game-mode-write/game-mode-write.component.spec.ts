@@ -9,8 +9,8 @@ describe('GameModeWriteComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GameModeWriteComponent ],
-      imports: [IonicModule.forRoot()]
+      declarations: [GameModeWriteComponent],
+      imports: [IonicModule.forRoot()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(GameModeWriteComponent);

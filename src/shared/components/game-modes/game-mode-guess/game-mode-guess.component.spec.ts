@@ -9,8 +9,8 @@ describe('GameModeGuessComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GameModeGuessComponent ],
-      imports: [IonicModule.forRoot()]
+      declarations: [GameModeGuessComponent],
+      imports: [IonicModule.forRoot()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(GameModeGuessComponent);

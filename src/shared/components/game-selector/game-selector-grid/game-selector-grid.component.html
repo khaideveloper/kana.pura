@@ -1,10 +1,13 @@
 <!-- Grid with all the gamemodes -->
 <ion-grid *ngIf="this.grid != null">
   <!-- Row of gamemodes -->
-  <ion-row *ngFor="let row of this.grid; let i = index;">
+  <ion-row *ngFor="let row of this.grid; let i = index">
     <!-- Single block that represents a gamemode -->
-    <ion-col class="ion-activatable ripple-parent" *ngFor="let col of this.row; let j = index;"
-      (click)="this.open_full(col)">
+    <ion-col
+      class="ion-activatable ripple-parent"
+      *ngFor="let col of this.row; let j = index"
+      (click)="this.open_full(col)"
+    >
       {{ this.game_service.game_modes[col].name | translate }}
       <ion-ripple-effect></ion-ripple-effect>
     </ion-col>

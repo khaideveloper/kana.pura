@@ -9,8 +9,8 @@ describe('GameHeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GameHeaderComponent ],
-      imports: [IonicModule.forRoot()]
+      declarations: [GameHeaderComponent],
+      imports: [IonicModule.forRoot()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(GameHeaderComponent);

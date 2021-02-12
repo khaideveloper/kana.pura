@@ -20,7 +20,6 @@ export interface GRID_GAMEMODE {
   providedIn: 'root',
 })
 export class GameService {
-
   /** Current gamemode */
   mode: GAME_MODES = null;
 
@@ -56,5 +55,4 @@ export class GameService {
   start_game(mode: number) {
     this.mode = mode;
   }
-
 }

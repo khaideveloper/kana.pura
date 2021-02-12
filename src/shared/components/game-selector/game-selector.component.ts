@@ -7,11 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./game-selector.component.scss'],
 })
 export class GameSelectorComponent {
-
-  constructor(
-    public game_service: GameService
-  ) {
-
-  }
-
+  constructor(public game_service: GameService) {}
 }

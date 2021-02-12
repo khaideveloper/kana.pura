@@ -7,12 +7,5 @@ import { GameService } from 'src/shared/services/game/game.service';
   styleUrls: ['./game-selector-full.component.scss'],
 })
 export class GameSelectorFullComponent {
-
-  constructor(
-    public game_service: GameService,
-  ) {
-
-  }
-
+  constructor(public game_service: GameService) {}
 }
-

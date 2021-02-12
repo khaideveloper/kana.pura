@@ -31,7 +31,9 @@
     text-overflow: ellipsis;
   }
 
-  .button1, .button2, .button3 {
+  .button1,
+  .button2,
+  .button3 {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -44,7 +46,8 @@
     }
   }
 
-  .button2, .button3 {
+  .button2,
+  .button3 {
     justify-content: space-between;
     flex-wrap: wrap;
     margin-bottom: 0.2em;
@@ -66,7 +69,8 @@
       color: var(--ion-color-medium-contrast) !important;
     }
 
-    td, th {
+    td,
+    th {
       width: 40px;
       height: 40px;
       display: flex;

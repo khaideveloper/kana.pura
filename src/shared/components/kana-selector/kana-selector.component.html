@@ -1,52 +1,74 @@
 <div class="container">
-
   <div class="header">
-
-    <span>{{ 'KANA_SELECTOR' | translate }}</span>
+    <span>{{ "KANA_SELECTOR" | translate }}</span>
 
     <ion-button>
       <ion-icon name="close"></ion-icon>
     </ion-button>
-
   </div>
 
   <div class="button1">
-    <ion-button color="primary" (click)="this.button('all')">{{ 'ENABLE_ALL' | translate }}</ion-button>
+    <ion-button color="primary" (click)="this.button('all')">{{
+      "ENABLE_ALL" | translate
+    }}</ion-button>
   </div>
   <div class="button2">
-    <ion-button color="primary" (click)="this.button('enable_hiragana')">{{ 'ENABLE_HIRAGANA' | translate }}</ion-button>
-    <ion-button color="primary" (click)="this.button('disable_hiragana')">{{ 'DISABLE_HIRAGANA' | translate }}</ion-button>
-    <ion-button color="primary" (click)="this.button('all_alt_hiragana')">{{ 'ENABLE_ALL_ALTERNATIVE' | translate }}</ion-button>
-    <ion-button color="primary" (click)="this.button('no_alt_hiragana')">{{ 'ENABLE_NO_ALTERNATIVE' | translate }}</ion-button>
+    <ion-button color="primary" (click)="this.button('enable_hiragana')">{{
+      "ENABLE_HIRAGANA" | translate
+    }}</ion-button>
+    <ion-button color="primary" (click)="this.button('disable_hiragana')">{{
+      "DISABLE_HIRAGANA" | translate
+    }}</ion-button>
+    <ion-button color="primary" (click)="this.button('all_alt_hiragana')">{{
+      "ENABLE_ALL_ALTERNATIVE" | translate
+    }}</ion-button>
+    <ion-button color="primary" (click)="this.button('no_alt_hiragana')">{{
+      "ENABLE_NO_ALTERNATIVE" | translate
+    }}</ion-button>
   </div>
 
   <table>
     <tr *ngFor="let group of _KANA_DICTIONARY.HIRAGANA; let i = index">
-      <th (click)="this.game_service.filter.toggle_group('HIRAGANA', i)">{{ HIRAGANA_TH[i] }}</th>
-      <td *ngFor="let element of group; let j = index"
+      <th (click)="this.game_service.filter.toggle_group('HIRAGANA', i)">
+        {{ HIRAGANA_TH[i] }}
+      </th>
+      <td
+        *ngFor="let element of group; let j = index"
         (click)="this.game_service.filter.toggle_element('HIRAGANA', i, j)"
-        [class.disabled]="! this.game_service.filter.HIRAGANA_GROUPS[i][j]">
+        [class.disabled]="!this.game_service.filter.HIRAGANA_GROUPS[i][j]"
+      >
         {{ element.kana }}
       </td>
     </tr>
   </table>
 
   <div class="button3">
-    <ion-button color="primary" (click)="this.button('enable_katakana')">{{ 'ENABLE_KATAKANA' | translate }}</ion-button>
-    <ion-button color="primary" (click)="this.button('disable_katakana')">{{ 'DISABLE_KATAKANA' | translate }}</ion-button>
-    <ion-button color="primary" (click)="this.button('all_alt_katakana')">{{ 'ENABLE_ALL_ALTERNATIVE' | translate }}</ion-button>
-    <ion-button color="primary" (click)="this.button('no_alt_katakana')">{{ 'ENABLE_NO_ALTERNATIVE' | translate }}</ion-button>
+    <ion-button color="primary" (click)="this.button('enable_katakana')">{{
+      "ENABLE_KATAKANA" | translate
+    }}</ion-button>
+    <ion-button color="primary" (click)="this.button('disable_katakana')">{{
+      "DISABLE_KATAKANA" | translate
+    }}</ion-button>
+    <ion-button color="primary" (click)="this.button('all_alt_katakana')">{{
+      "ENABLE_ALL_ALTERNATIVE" | translate
+    }}</ion-button>
+    <ion-button color="primary" (click)="this.button('no_alt_katakana')">{{
+      "ENABLE_NO_ALTERNATIVE" | translate
+    }}</ion-button>
   </div>
 
   <table>
     <tr *ngFor="let group of _KANA_DICTIONARY.KATAKANA; let i = index">
-      <th (click)="this.game_service.filter.toggle_group('KATAKANA', i)">{{ KATAKANA_TH[i] }}</th>
-      <td *ngFor="let element of group; let j = index"
+      <th (click)="this.game_service.filter.toggle_group('KATAKANA', i)">
+        {{ KATAKANA_TH[i] }}
+      </th>
+      <td
+        *ngFor="let element of group; let j = index"
         (click)="this.game_service.filter.toggle_element('KATAKANA', i, j)"
-        [class.disabled]="!this.game_service.filter.KATAKANA_GROUPS[i][j]">
+        [class.disabled]="!this.game_service.filter.KATAKANA_GROUPS[i][j]"
+      >
         {{ element.kana }}
       </td>
     </tr>
   </table>
-
 </div>

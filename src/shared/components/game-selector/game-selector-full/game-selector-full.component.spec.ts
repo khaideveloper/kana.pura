@@ -9,8 +9,8 @@ describe('GameSelectorFullComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GameSelectorFullComponent ],
-      imports: [IonicModule.forRoot()]
+      declarations: [GameSelectorFullComponent],
+      imports: [IonicModule.forRoot()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(GameSelectorFullComponent);

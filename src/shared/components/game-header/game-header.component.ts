@@ -1,6 +1,6 @@
 import { GameService } from 'src/shared/services/game/game.service';
 import { KanaSelectorComponent } from './../kana-selector/kana-selector.component';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
 @Component({
@@ -8,22 +8,16 @@ import { ModalController } from '@ionic/angular';
   templateUrl: './game-header.component.html',
   styleUrls: ['./game-header.component.scss'],
 })
-export class GameHeaderComponent implements OnInit {
-
+export class GameHeaderComponent {
   constructor(
     public game_service: GameService,
-    public modalController: ModalController,
-  ) {
-
-  }
-
-  ngOnInit() {}
+    public modalController: ModalController
+  ) {}
 
   async openSelector() {
     const modal = await this.modalController.create({
-      component: KanaSelectorComponent
+      component: KanaSelectorComponent,
     });
     return await modal.present();
   }
-
 }

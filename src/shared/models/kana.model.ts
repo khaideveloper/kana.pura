@@ -3,9 +3,9 @@ export interface KANA_DICTIONARY_ELEMENT {
   values: string[];
 }
 
-export const KANA_DICTIONARY : {
-  HIRAGANA: KANA_DICTIONARY_ELEMENT[][],
-  KATAKANA: KANA_DICTIONARY_ELEMENT[][]
+export const KANA_DICTIONARY: {
+  HIRAGANA: KANA_DICTIONARY_ELEMENT[][];
+  KATAKANA: KANA_DICTIONARY_ELEMENT[][];
 } = {
   HIRAGANA: [
     [
@@ -367,11 +367,15 @@ export class KANA_FILTER {
   constructor() {
     KANA_DICTIONARY.HIRAGANA.forEach((group) => {
       this.HIRAGANA_GROUPS.push([]);
-      group.forEach(() => { this.HIRAGANA_GROUPS[this.HIRAGANA_GROUPS.length-1].push(false); });
+      group.forEach(() => {
+        this.HIRAGANA_GROUPS[this.HIRAGANA_GROUPS.length - 1].push(false);
+      });
     });
     KANA_DICTIONARY.KATAKANA.forEach((group) => {
       this.KATAKANA_GROUPS.push([]);
-      group.forEach(() => { this.KATAKANA_GROUPS[this.KATAKANA_GROUPS.length-1].push(false); });
+      group.forEach(() => {
+        this.KATAKANA_GROUPS[this.KATAKANA_GROUPS.length - 1].push(false);
+      });
     });
   }
 
@@ -381,33 +385,65 @@ export class KANA_FILTER {
   }
 
   toggle_kana(kana: 'HIRAGANA' | 'KATAKANA', force?: boolean) {
-    if(kana == null) { return; }
-    KANA_DICTIONARY[kana].forEach((group, index) => { this.toggle_group(kana, index, force) });
+    if (kana == null) {
+      return;
+    }
+    KANA_DICTIONARY[kana].forEach((group, index) => {
+      this.toggle_group(kana, index, force);
+    });
   }
 
   toggle_group(kana: 'HIRAGANA' | 'KATAKANA', group: number, force?: boolean) {
-    if(kana == null || group == null) { return; }
+    if (kana == null || group == null) {
+      return;
+    }
     KANA_DICTIONARY[kana][group].forEach((element, index) => {
       console.log(group + ': ' + index);
       this.toggle_element(kana, group, index, force);
     });
   }
 
-  toggle_element(kana: 'HIRAGANA' | 'KATAKANA', group: number, element: number, force?: boolean) {
-    if(kana == null || group == null || element == null || this[kana + '_GROUPS'][group] == null || this[kana + '_GROUPS'][group][element] == null) { return; }
-    this[kana + '_GROUPS'][group][element] = (force == null) ? !this[kana + '_GROUPS'][group][element] : force;
+  toggle_element(
+    kana: 'HIRAGANA' | 'KATAKANA',
+    group: number,
+    element: number,
+    force?: boolean
+  ) {
+    if (
+      kana == null ||
+      group == null ||
+      element == null ||
+      this[kana + '_GROUPS'][group] == null ||
+      this[kana + '_GROUPS'][group][element] == null
+    ) {
+      return;
+    }
+    this[kana + '_GROUPS'][group][element] =
+      force == null ? !this[kana + '_GROUPS'][group][element] : force;
     let has_element = false;
-    this[kana + '_GROUPS'].forEach(group => { group.forEach(element => { if(element) { has_element = true; } }); });
+    this[kana + '_GROUPS'].forEach((group) => {
+      group.forEach((element) => {
+        if (element) {
+          has_element = true;
+        }
+      });
+    });
     this['has' + kana] = has_element;
   }
 
   get_numbers(kana: 'HIRAGANA' | 'KATAKANA') {
-    if(kana == null) { return; }
+    if (kana == null) {
+      return;
+    }
     let temp = [];
 
     this[kana + '_GROUPS'].forEach((group) => {
       let values = [];
-      group.forEach((element, index) => { if(element) { values.push(index); } });
+      group.forEach((element, index) => {
+        if (element) {
+          values.push(index);
+        }
+      });
       temp.push(values);
     });
 
@@ -416,17 +452,26 @@ export class KANA_FILTER {
 }
 
 export var last_element: KANA_DICTIONARY_ELEMENT = null;
-export function random_kana(filter: KANA_FILTER) : KANA_DICTIONARY_ELEMENT {
-  if(filter == null) { return; }
+export function random_kana(filter: KANA_FILTER): KANA_DICTIONARY_ELEMENT {
+  if (filter == null) {
+    return;
+  }
 
-
-  let kana = (filter.hasHIRAGANA && filter.hasKATAKANA) ? ['HIRAGANA','KATAKANA'][random(0,2)] : (filter.hasHIRAGANA ? 'HIRAGANA' : 'KATAKANA');
+  let kana =
+    filter.hasHIRAGANA && filter.hasKATAKANA
+      ? ['HIRAGANA', 'KATAKANA'][random(0, 2)]
+      : filter.hasHIRAGANA
+      ? 'HIRAGANA'
+      : 'KATAKANA';
   let numbers = filter.get_numbers(<'HIRAGANA' | 'KATAKANA'>kana);
 
   let element = last_element;
-  if(last_element === element) {
+  if (last_element === element) {
     let group = random(0, numbers.length);
-    element = KANA_DICTIONARY[kana][group][numbers[group][random(0, numbers[group].length)]];
+    element =
+      KANA_DICTIONARY[kana][group][
+        numbers[group][random(0, numbers[group].length)]
+      ];
   }
 
   return element;

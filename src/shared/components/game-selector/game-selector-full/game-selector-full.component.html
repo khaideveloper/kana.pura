@@ -1,23 +1,32 @@
 <div class="container" *ngIf="this.game_service.selected_gamemode != null">
-
-  <ion-icon class="grid" name="grid" color="primary" (click)="this.game_service.current_view = 0;"></ion-icon>
+  <ion-icon
+    class="grid"
+    name="grid"
+    color="primary"
+    (click)="this.game_service.current_view = 0"
+  ></ion-icon>
 
   <div class="top">
-
     <div class="icon">icon</div>
-
   </div>
 
   <div class="bottom">
+    <span class="name">{{
+      this.game_service.selected_gamemode.name | translate
+    }}</span>
 
-    <span class="name">{{ this.game_service.selected_gamemode.name | translate }}</span>
+    <span class="desc">{{
+      this.game_service.selected_gamemode.desc | translate
+    }}</span>
 
-    <span class="desc">{{ this.game_service.selected_gamemode.desc | translate }}</span>
-
-    <ion-button class="play" (click)="this.game_service.start_game(this.game_service.selected_gamemode.id)">play</ion-button>
+    <ion-button
+      class="play"
+      (click)="
+        this.game_service.start_game(this.game_service.selected_gamemode.id)
+      "
+      >play</ion-button
+    >
 
     <ion-button class="stats">stats</ion-button>
-
   </div>
-
 </div>

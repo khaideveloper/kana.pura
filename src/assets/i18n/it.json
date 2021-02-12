@@ -1,7 +1,15 @@
 {
-  "GAME_MODE_0": "Drag to ",
-  "GAME_MODE_1": "B",
-  "GAME_MODE_2": "C",
-  "GAME_MODE_3": "D",
-  "GAME_MODE_4": "E"
+  "GAMEMODE_DRAG_NAME": "Drag the Character",
+  "GAMEMODE_FILL_NAME": "Fill the Table",
+  "GAMEMODE_FIND_NAME": "Find the Character",
+  "GAMEMODE_GUESS_NAME": "Character Guess",
+  "GAMEMODE_WRITE_NAME": "Write the Character",
+  "ENABLE_ALL": "Enable All",
+  "ENABLE_HIRAGANA": "Enable Hiragana",
+  "ENABLE_KATAKANA": "Enable Katakana",
+  "DISABLE_ALL": "Disable All",
+  "DISABLE_HIRAGANA": "Disable Hiragana",
+  "DISABLE_KATAKANA": "Disable Katakana",
+  "ENABLE_ALL_ALTERNATIVE": "All Alternative",
+  "ENABLE_NO_ALTERNATIVE": "No Alternative"
 }

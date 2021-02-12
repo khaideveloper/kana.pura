@@ -9,8 +9,8 @@ describe('KanaSelectorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ KanaSelectorComponent ],
-      imports: [IonicModule.forRoot()]
+      declarations: [KanaSelectorComponent],
+      imports: [IonicModule.forRoot()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(KanaSelectorComponent);

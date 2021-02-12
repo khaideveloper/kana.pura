@@ -9,8 +9,8 @@ describe('GameSelectorGridComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GameSelectorGridComponent ],
-      imports: [IonicModule.forRoot()]
+      declarations: [GameSelectorGridComponent],
+      imports: [IonicModule.forRoot()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(GameSelectorGridComponent);
