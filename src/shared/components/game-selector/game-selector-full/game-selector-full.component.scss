@@ -12,9 +12,17 @@
     position: absolute;
     top: 0px;
     right: 0px;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
+    font-size: 1.5em;
+    width: 35px;
+    height: 35px;
+    --padding-end: 0px;
+    --padding-start: 0px;
+    --padding-top: 0px;
+    --padding-bottom: 0px;
+
+    ion-icon {
+      padding: 3px;
+    }
   }
 
   .top {
@@ -48,6 +56,8 @@
     .play,
     .stats {
       width: 100%;
+      height: 50px;
+      font-size: 2em;
     }
   }
 }
