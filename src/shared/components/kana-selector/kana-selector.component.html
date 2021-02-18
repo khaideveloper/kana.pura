@@ -12,7 +12,7 @@
       ((this.game_service.filter.hasHIRAGANA || this.game_service.filter.hasKATAKANA ? 'DISABLE' : 'ENABLE') + "_ALL") | translate
     }}</ion-button>
   </div>
-  <ion-list *ngFor="let kana of ['HIRAGANA', 'KATAKANA']" [lines]="'none'">
+  <ion-list *ngFor="let kana of kanas" [lines]="'none'">
     <div style="
     display: flex;
     justify-content: space-between;

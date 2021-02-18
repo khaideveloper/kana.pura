@@ -13,6 +13,8 @@ export class KanaSelectorComponent {
   /** Kana values to show */
   _KANA_DICTIONARY = KANA_DICTIONARY;
 
+  kanas : ("HIRAGANA" | "KATAKANA")[] = ["HIRAGANA","KATAKANA"];
+
   /** Currently active kana groups */
   active_groups: {
     HIRAGANA: boolean[];
