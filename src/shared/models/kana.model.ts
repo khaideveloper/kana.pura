@@ -365,7 +365,7 @@ export class KANA_FILTER {
   hasKATAKANA: boolean = false;
   HIRAGANA_GROUPS: boolean[][] = [];
   KATAKANA_GROUPS: boolean[][] = [];
-  filterChanged: EventEmitter<any>;
+  filterChanged: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() {
     KANA_DICTIONARY.HIRAGANA.forEach((group) => {

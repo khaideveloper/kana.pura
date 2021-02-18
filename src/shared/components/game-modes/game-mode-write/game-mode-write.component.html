@@ -3,12 +3,15 @@
 </div>
 
 <div class="input" *ngIf="this.guess != null">
-  <ion-input [(ngModel)]="input" (keypress)="input_filter($event)"></ion-input>
+  <ion-input [(ngModel)]="input" (ngModelChange)="input_filter()" (keypress)="enter($event)"></ion-input>
 </div>
 
 <div class="bar" *ngIf="this.guess != null">
-  <span>{{ this.correct }}</span
-  >/<span>{{ this.total }}</span
-  >&nbsp;
+  <span>{{ this.correct }}</span>/<span>{{ this.total }}</span>&nbsp;
   <span styele="color: red;">({{ this.incorrect }})</span>
+</div>
+
+<div>
+  activate on keydown
+  <ion-checkbox [(ngModel)]="this.onpress"></ion-checkbox>
 </div>

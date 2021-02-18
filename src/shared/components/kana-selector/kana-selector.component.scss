@@ -63,8 +63,14 @@
           color: var(--ion-color-primary-contrast);
           white-space: nowrap;
           overflow: hidden;
+          opacity: 1;
+          transition: opacity 0.25s ease-in-out;
         }
       }
     }
   }
+}
+
+.disabled {
+  opacity: 0.5 !important;
 }

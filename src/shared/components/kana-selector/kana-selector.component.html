@@ -7,55 +7,40 @@
     </ion-button>
   </div>
 
-  <div>
-    <ion-button color="primary" (click)="this.group_toggle('all')">{{
-      "ENABLE_ALL" | translate
+  <div style="width: 100%;">
+    <ion-button color="primary" (click)="this.group_toggle('all')" style="width: 100%;">{{
+      ((this.game_service.filter.hasHIRAGANA || this.game_service.filter.hasKATAKANA ? 'DISABLE' : 'ENABLE') + "_ALL") | translate
     }}</ion-button>
   </div>
   <ion-list *ngFor="let kana of ['HIRAGANA', 'KATAKANA']" [lines]="'none'">
-    <div>
-      <ion-button
-        color="primary"
-        (click)="this.group_toggle('kana', kana, true)"
-        >{{ ("ENABLE_" + kana) | translate }}</ion-button
-      >
-      <ion-button
-        color="primary"
-        (click)="this.group_toggle('kana', kana, false)"
-        >{{ ("DISABLE_" + kana) | translate }}</ion-button
-      >
-      <ion-button
-        color="primary"
-        (click)="this.group_toggle('alt_kana', kana, true)"
-        >{{ "ENABLE_ALL_ALTERNATIVE" | translate }}</ion-button
-      >
-      <ion-button
-        color="primary"
-        (click)="this.group_toggle('alt_kana', kana, false)"
-        >{{ "ENABLE_NO_ALTERNATIVE" | translate }}</ion-button
-      >
+    <div style="
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;">
+      <ion-button color="primary" style="width: calc(50% - 5px);" (click)="this.group_toggle('kana', kana, true)">
+        {{ ("ENABLE_" + kana) | translate }}</ion-button>
+      <ion-button color="primary" style="width: calc(50% - 5px);" (click)="this.group_toggle('kana', kana, false)">
+        {{ ("DISABLE_" + kana) | translate }}</ion-button>
+      <ion-button color="primary" style="width: calc(50% - 5px);" (click)="this.group_toggle('alt_kana', kana, true)">
+        {{ "ENABLE_ALL_ALTERNATIVE" | translate }}</ion-button>
+      <ion-button color="primary" style="width: calc(50% - 5px);" (click)="this.group_toggle('alt_kana', kana, false)">
+        {{ "ENABLE_NO_ALTERNATIVE" | translate }}</ion-button>
     </div>
     <ion-item *ngFor="let group of _KANA_DICTIONARY[kana]; let i = index">
       <div class="group_container">
         <span class="selector">
-          <ion-checkbox
-            color="secondary"
-            [(ngModel)]="this.active_groups[kana][i]"
-            (ngModelChange)="checkbox_changed(kana, i)"
-          ></ion-checkbox
-        ></span>
-        <span
-          *ngFor="let element of group"
-          [ngStyle]="{
+          <ion-checkbox color="secondary" [(ngModel)]="this.active_groups[kana][i]"
+            (ngModelChange)="checkbox_changed(kana, i)"></ion-checkbox>
+        </span>
+        <span *ngFor="let element of group" [class.disabled]="!this.active_groups[kana][i]" [ngStyle]="{
             width:
               'calc(' +
               (1 / group.length) * 100 +
               '% - 4px - ' +
               40 / group.length +
               'px)'
-          }"
-          >{{ element.kana }}</span
-        >
+          }">{{ element.kana }}</span>
       </div>
     </ion-item>
   </ion-list>

@@ -42,7 +42,11 @@ export class KanaSelectorComponent {
     ['HIRAGANA', 'KATAKANA'].forEach((kana) => {
       this.game_service.filter[kana + '_GROUPS'].forEach((group: boolean[]) => {
         let active = true;
-        group.forEach((element) => { if(!element) { active = false; }});
+        group.forEach((element) => {
+          if (!element) {
+            active = false;
+          }
+        });
         this.active_groups[kana].push(active);
       });
     });
@@ -50,7 +54,11 @@ export class KanaSelectorComponent {
 
   /** Method to activate/deactivate a group */
   checkbox_changed(kana: 'HIRAGANA' | 'KATAKANA', group: number) {
-    this.game_service.filter.toggle_group(kana, group, this.active_groups[kana][group]);
+    this.game_service.filter.toggle_group(
+      kana,
+      group,
+      this.active_groups[kana][group]
+    );
   }
 
   /** Toggle for a specific set of the kana */
@@ -78,6 +86,7 @@ export class KanaSelectorComponent {
         }
         break;
     }
+    this.game_service.filter.filterChanged.emit();
     this.update_active_groups();
   }
 }
