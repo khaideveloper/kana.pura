@@ -6,7 +6,6 @@
     "ng": "ng",
     "start": "ionic serve -l",
     "android": "ionic cap run android -l --external",
-    "sync_android": "cordova-res android --skip-config --copy",
     "build": "ionic capacitor build android --prod --release",
     "sync": "npx cap copy",
     "test": "ng test",
