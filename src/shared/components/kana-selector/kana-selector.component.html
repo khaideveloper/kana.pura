@@ -9,7 +9,7 @@
 
   <div style="width: 100%;">
     <ion-button color="primary" (click)="this.group_toggle('all')" style="width: 100%;">{{
-      ((this.game_service.filter.hasHIRAGANA || this.game_service.filter.hasKATAKANA ? 'DISABLE' : 'ENABLE') + "_ALL") | translate
+      ((this.gameService.filter.hasHIRAGANA || this.gameService.filter.hasKATAKANA ? 'DISABLE' : 'ENABLE') + "_ALL") | translate
     }}</ion-button>
   </div>
   <ion-list *ngFor="let kana of kanas" [lines]="'none'">
@@ -30,10 +30,10 @@
     <ion-item *ngFor="let group of _KANA_DICTIONARY[kana]; let i = index">
       <div class="group_container">
         <span class="selector">
-          <ion-checkbox color="secondary" [(ngModel)]="this.active_groups[kana][i]"
+          <ion-checkbox color="secondary" [(ngModel)]="this.activeGroups[kana][i]"
             (ngModelChange)="checkbox_changed(kana, i)"></ion-checkbox>
         </span>
-        <span *ngFor="let element of group" [class.disabled]="!this.active_groups[kana][i]" [ngStyle]="{
+        <span *ngFor="let element of group" [class.disabled]="!this.activeGroups[kana][i]" [ngStyle]="{
             width:
               'calc(' +
               (1 / group.length) * 100 +

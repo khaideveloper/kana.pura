@@ -1,11 +1,12 @@
 {
   "name": "kana.pura",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "author": "Khai",
   "scripts": {
     "ng": "ng",
     "start": "ionic serve -l",
-    "android": "ionic cap run android -l --external",
+    "android_open": "ionic cap open android",
+    "android_start": "ionic cap run android -l --external",
     "build": "ionic capacitor build android --prod --release",
     "sync": "npx cap copy",
     "test": "ng test",

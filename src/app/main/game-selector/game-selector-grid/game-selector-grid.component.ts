@@ -13,17 +13,17 @@ export class GameSelectorGridComponent {
   /** Grid array to initialize the HTML element */
   grid: any[][] = [];
 
-  constructor(public game_service: GameService) {
+  constructor(public gameService: GameService) {
     /** Initialize grid */
     for (
       let i = 0;
-      i < Math.ceil(this.game_service.game_modes.length / COL_NUMBER);
+      i < Math.ceil(this.gameService.gameModes.length / COL_NUMBER);
       i++
     ) {
       this.grid.push([]);
       for (let j = 0; j < COL_NUMBER; j++) {
-        let element = i * COL_NUMBER + j;
-        if (element < this.game_service.game_modes.length) {
+        const element = i * COL_NUMBER + j;
+        if (element < this.gameService.gameModes.length) {
           this.grid[this.grid.length - 1][j] = element;
         }
       }
@@ -32,7 +32,7 @@ export class GameSelectorGridComponent {
 
   /** Opens the clicked element  */
   open_full(mode: number) {
-    this.game_service.current_view = 1;
-    this.game_service.selected_gamemode = this.game_service.game_modes[mode];
+    // this.game_service.current_view = 1;
+    this.gameService.selectedGamemode = this.gameService.gameModes[mode];
   }
 }

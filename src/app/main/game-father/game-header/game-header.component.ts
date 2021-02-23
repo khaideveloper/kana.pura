@@ -1,6 +1,6 @@
 import { GameService } from 'src/shared/services/game/game.service';
 import { Component } from '@angular/core';
-import { KanaSelectorComponent } from '../../../../shared/components/kana-selector/kana-selector.component';
+import { KanaSelectorComponent } from 'src/shared/components/kana-selector/kana-selector.component';
 import { ModalController } from '@ionic/angular';
 
 @Component({
@@ -10,15 +10,15 @@ import { ModalController } from '@ionic/angular';
 })
 export class GameHeaderComponent {
   constructor(
-    public game_service: GameService,
+    public gameService: GameService,
     public modalController: ModalController
   ) {}
 
   /** Opens the kana selector modal */
   async kana_selector() {
-    this.game_service.kanaModal = await this.modalController.create({
+    this.gameService.kanaModal = await this.modalController.create({
       component: KanaSelectorComponent,
     });
-    return await this.game_service.kanaModal.present();
+    return await this.gameService.kanaModal.present();
   }
 }

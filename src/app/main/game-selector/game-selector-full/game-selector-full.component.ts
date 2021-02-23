@@ -10,14 +10,14 @@ import { Platform } from '@ionic/angular';
 })
 export class GameSelectorFullComponent implements OnDestroy {
   backSub: Subscription;
-  constructor(public game_service: GameService, private platform: Platform) {
+  constructor(public gameService: GameService, private platform: Platform) {
     this.backSub = this.platform.backButton.subscribeWithPriority(10, () => {
       this.goBack();
     });
   }
 
   goBack() {
-    this.game_service.current_view = 0;
+    // this.game_service.current_view = 0;
   }
 
   ngOnDestroy() {

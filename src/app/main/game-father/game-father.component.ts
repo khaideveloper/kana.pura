@@ -10,15 +10,15 @@ import { Subscription } from 'rxjs';
 })
 export class GameFatherComponent implements OnDestroy {
   backSub: Subscription;
-  constructor(public game_service: GameService, private platform: Platform) {
+  constructor(public gameService: GameService, private platform: Platform) {
     this.backSub = this.platform.backButton.subscribeWithPriority(10, () => {
       this.goBack();
     });
   }
 
   goBack() {
-    this.game_service.current_view = 1;
-    this.game_service.mode = null;
+    // this.gameService.current_view = 1;
+    this.gameService.mode = null;
   }
 
   ngOnDestroy() {

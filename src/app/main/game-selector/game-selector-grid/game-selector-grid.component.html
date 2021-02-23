@@ -8,7 +8,7 @@
       *ngFor="let col of this.row; let j = index"
       (click)="this.open_full(col)"
     >
-      {{ this.game_service.game_modes[col].name | translate }}
+      {{ this.gameService.gameModes[col].name | translate }}
       <ion-ripple-effect></ion-ripple-effect>
     </ion-col>
   </ion-row>

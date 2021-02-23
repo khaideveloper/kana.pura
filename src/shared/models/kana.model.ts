@@ -1,13 +1,13 @@
-import { EventEmitter } from "@angular/core";
+import { EventEmitter } from '@angular/core';
 
-export interface KANA_DICTIONARY_ELEMENT {
+export interface KanaDictionaryElement {
   kana: string;
   values: string[];
 }
 
 export const KANA_DICTIONARY: {
-  HIRAGANA: KANA_DICTIONARY_ELEMENT[][];
-  KATAKANA: KANA_DICTIONARY_ELEMENT[][];
+  HIRAGANA: KanaDictionaryElement[][];
+  KATAKANA: KanaDictionaryElement[][];
 } = {
   HIRAGANA: [
     [
@@ -360,9 +360,9 @@ export const KANA_DICTIONARY: {
   ],
 };
 
-export class KANA_FILTER {
-  hasHIRAGANA: boolean = false;
-  hasKATAKANA: boolean = false;
+export class KanaFilter {
+  hasHIRAGANA = false;
+  hasKATAKANA = false;
   HIRAGANA_GROUPS: boolean[][] = [];
   KATAKANA_GROUPS: boolean[][] = [];
   filterChanged: EventEmitter<any> = new EventEmitter<any>();
@@ -422,25 +422,25 @@ export class KANA_FILTER {
     }
     this[kana + '_GROUPS'][group][element] =
       force == null ? !this[kana + '_GROUPS'][group][element] : force;
-    let has_element = false;
-    this[kana + '_GROUPS'].forEach((group) => {
-      group.forEach((element) => {
-        if (element) {
-          has_element = true;
+    let hasElement = false;
+    this[kana + '_GROUPS'].forEach((groupInKana: KanaDictionaryElement[]) => {
+      groupInKana.forEach((elementInGroup: KanaDictionaryElement) => {
+        if (elementInGroup) {
+          hasElement = true;
         }
       });
     });
-    this['has' + kana] = has_element;
+    this['has' + kana] = hasElement;
   }
 
   get_numbers(kana: 'HIRAGANA' | 'KATAKANA') {
     if (kana == null) {
       return;
     }
-    let temp = [];
+    const temp = [];
 
     this[kana + '_GROUPS'].forEach((group) => {
-      let values = [];
+      const values = [];
       group.forEach((element, index) => {
         if (element) {
           values.push(index);
@@ -453,23 +453,23 @@ export class KANA_FILTER {
   }
 }
 
-export var last_element: KANA_DICTIONARY_ELEMENT = null;
-export function random_kana(filter: KANA_FILTER): KANA_DICTIONARY_ELEMENT {
+export let lastElement: KanaDictionaryElement = null;
+export function random_kana(filter: KanaFilter): KanaDictionaryElement {
   if (filter == null) {
     return;
   }
 
-  let kana =
+  const kana =
     filter.hasHIRAGANA && filter.hasKATAKANA
       ? ['HIRAGANA', 'KATAKANA'][random(0, 2)]
       : filter.hasHIRAGANA
       ? 'HIRAGANA'
       : 'KATAKANA';
-  let numbers = filter.get_numbers(<'HIRAGANA' | 'KATAKANA'>kana);
+  const numbers = filter.get_numbers( kana as 'HIRAGANA' | 'KATAKANA');
 
-  let element = last_element;
-  if (last_element === element) {
-    let group = random(0, numbers.length);
+  let element = lastElement;
+  if (lastElement === element) {
+    const group = random(0, numbers.length);
     element =
       KANA_DICTIONARY[kana][group][
         numbers[group][random(0, numbers[group].length)]

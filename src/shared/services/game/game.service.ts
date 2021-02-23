@@ -1,6 +1,6 @@
 import { GAME_MODES } from './../../models/game.model';
 import { Injectable } from '@angular/core';
-import { KANA_FILTER } from 'src/shared/models/kana.model';
+import { KanaFilter } from 'src/shared/models/kana.model';
 
 /** Different modes for the selector */
 export enum SELECTOR_VIEW_MODE {
@@ -9,7 +9,7 @@ export enum SELECTOR_VIEW_MODE {
 }
 
 /** Element that represents a gamemode */
-export interface GRID_GAMEMODE {
+export interface GridGamemode {
   id: number;
   name: string;
   desc: string;
@@ -24,28 +24,25 @@ export class GameService {
   mode: GAME_MODES = null;
 
   /** Currently active filter */
-  filter: KANA_FILTER;
+  filter: KanaFilter;
 
   /** All the possible gamemodes */
-  game_modes: GRID_GAMEMODE[] = [];
-
-  /** Currently active view in the game selector */
-  current_view: SELECTOR_VIEW_MODE = 0;
+  gameModes: GridGamemode[] = [];
 
   /** Currently active gamemode */
-  selected_gamemode: GRID_GAMEMODE;
+  selectedGamemode: GridGamemode;
 
   /** Reference to the kana selector modal */
   kanaModal: HTMLIonModalElement;
 
   constructor() {
-    this.filter = new KANA_FILTER();
+    this.filter = new KanaFilter();
     this.filter.toggle_all();
-    //Init of the gamemode array
+    // Init of the gamemode array
     Object.keys(GAME_MODES)
       .filter((e) => isNaN(+e))
       .forEach((key, index) => {
-        this.game_modes.push({
+        this.gameModes.push({
           id: index,
           name: 'GAMEMODE_' + key + '_NAME',
           desc: 'GAMEMODE_' + key + '_DESC',

@@ -1,4 +1,4 @@
-import { KANA_DICTIONARY_ELEMENT } from './../../models/kana.model';
+import { KanaDictionaryElement } from './../../models/kana.model';
 import { GameService } from './../../services/game/game.service';
 import { Component, Input } from '@angular/core';
 import { KANA_DICTIONARY } from 'src/shared/models/kana.model';
@@ -13,16 +13,16 @@ export class KanaSelectorComponent {
   /** Kana values to show */
   _KANA_DICTIONARY = KANA_DICTIONARY;
 
-  kanas : ("HIRAGANA" | "KATAKANA")[] = ["HIRAGANA","KATAKANA"];
+  kanas: ('HIRAGANA' | 'KATAKANA')[] = ['HIRAGANA', 'KATAKANA'];
 
   /** Currently active kana groups */
-  active_groups: {
+  activeGroups: {
     HIRAGANA: boolean[];
     KATAKANA: boolean[];
   };
 
   constructor(
-    public game_service: GameService,
+    public gameService: GameService,
     public modalController: ModalController
   ) {
     this.update_active_groups();
@@ -37,29 +37,29 @@ export class KanaSelectorComponent {
 
   /** Updates the current active kana groups */
   update_active_groups() {
-    this.active_groups = {
+    this.activeGroups = {
       HIRAGANA: [],
       KATAKANA: [],
     };
     ['HIRAGANA', 'KATAKANA'].forEach((kana) => {
-      this.game_service.filter[kana + '_GROUPS'].forEach((group: boolean[]) => {
+      this.gameService.filter[kana + '_GROUPS'].forEach((group: boolean[]) => {
         let active = true;
         group.forEach((element) => {
           if (!element) {
             active = false;
           }
         });
-        this.active_groups[kana].push(active);
+        this.activeGroups[kana].push(active);
       });
     });
   }
 
   /** Method to activate/deactivate a group */
   checkbox_changed(kana: 'HIRAGANA' | 'KATAKANA', group: number) {
-    this.game_service.filter.toggle_group(
+    this.gameService.filter.toggle_group(
       kana,
       group,
-      this.active_groups[kana][group]
+      this.activeGroups[kana][group]
     );
   }
 
@@ -77,18 +77,18 @@ export class KanaSelectorComponent {
     }
     switch (element) {
       case 'all':
-        this.game_service.filter.toggle_all();
+        this.gameService.filter.toggle_all();
         break;
       case 'kana':
-        this.game_service.filter.toggle_kana(kana, value);
+        this.gameService.filter.toggle_kana(kana, value);
         break;
       case 'alt_kana':
         for (let i = 10; i < KANA_DICTIONARY[kana].length; i++) {
-          this.game_service.filter.toggle_group(kana, i, value);
+          this.gameService.filter.toggle_group(kana, i, value);
         }
         break;
     }
-    this.game_service.filter.filterChanged.emit();
+    this.gameService.filter.filterChanged.emit();
     this.update_active_groups();
   }
 }

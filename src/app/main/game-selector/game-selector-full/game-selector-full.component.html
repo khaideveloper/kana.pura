@@ -1,4 +1,4 @@
-<div class="container" *ngIf="this.game_service.selected_gamemode != null">
+<div class="container" *ngIf="this.gameService.selectedGamemode != null">
   <ion-button class="grid" (click)="goBack()">
     <ion-icon name="grid"></ion-icon>
   </ion-button>
@@ -9,13 +9,13 @@
 
   <div class="bottom">
     <span class="name">{{
-      this.game_service.selected_gamemode.name | translate
+      this.gameService.selectedGamemode.name | translate
     }}</span>
 
     <span class="desc"></span>
 
     <ion-button class="play" (click)="
-        this.game_service.start_game(this.game_service.selected_gamemode.id)
+        this.gameService.start_game(this.gameService.selectedGamemode.id)
       ">play</ion-button>
 
     <ion-button class="stats">stats</ion-button>

@@ -1,6 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import {
-  KANA_DICTIONARY_ELEMENT,
+  KanaDictionaryElement,
   random_kana,
 } from 'src/shared/models/kana.model';
 import { Subscription } from 'rxjs';
@@ -13,29 +13,29 @@ import { GameService } from 'src/shared/services/game/game.service';
 })
 export class GameModeWriteComponent implements OnDestroy {
   /** Element to guess */
-  guess: KANA_DICTIONARY_ELEMENT;
+  guess: KanaDictionaryElement;
 
   /** Input inserted by the user */
   input: string;
 
   /** Number of correct guesses */
-  correct: number = 0;
+  correct = 0;
 
   /** Number of incorrect guesses */
-  incorrect: number = 0;
+  incorrect = 0;
 
   /** Total number of guesses */
-  total: number = 0;
+  total = 0;
 
   /** Filter changed subscription */
   filterchangeSub: Subscription;
 
-  onpress: boolean = false;
+  onpress = false;
 
-  constructor(public game_service: GameService) {
+  constructor(public gameService: GameService) {
     this.new_guess();
-    //Event on filter change
-    this.filterchangeSub = this.game_service.filter.filterChanged.subscribe(
+    // Event on filter change
+    this.filterchangeSub = this.gameService.filter.filterChanged.subscribe(
       () => {
         this.new_guess();
       }
@@ -50,12 +50,12 @@ export class GameModeWriteComponent implements OnDestroy {
 
   /** Change the symbol to guess */
   new_guess() {
-    this.guess = random_kana(this.game_service.filter);
+    this.guess = random_kana(this.gameService.filter);
   }
 
   /** User trial to guess the symbol */
   try_guess() {
-    if (this.input == null || this.input == '') {
+    if (this.input == null || this.input === '') {
       return;
     }
     if (this.onpress && this.input.length !== this.guess.values[0].length) {

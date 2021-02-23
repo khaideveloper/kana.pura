@@ -10,7 +10,12 @@ const routes: Routes = [
     children: [
       {
         path: 'selector',
-        component: GameFatherComponent
+        component: GameFatherComponent,
+        children: [
+          {
+            path: ''
+          }
+        ]
       },
       {
         path: 'game',
