@@ -14,6 +14,7 @@ export interface GridGamemode {
   name: string;
   desc: string;
   icon: string;
+  src: string;
 }
 
 @Injectable({
@@ -21,7 +22,7 @@ export interface GridGamemode {
 })
 export class GameService {
   /** Current gamemode */
-  mode: GAME_MODES = null;
+  // mode: GAME_MODES = null;
 
   /** Currently active filter */
   filter: KanaFilter;
@@ -47,12 +48,8 @@ export class GameService {
           name: 'GAMEMODE_' + key + '_NAME',
           desc: 'GAMEMODE_' + key + '_DESC',
           icon: 'GAMEMODE_' + key + '_ICON',
+          src: key.toLowerCase()
         });
       });
-  }
-
-  /** Start a new game with the passed mode */
-  start_game(mode: number) {
-    this.mode = mode;
   }
 }

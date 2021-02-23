@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { GameService } from 'src/shared/services/game/game.service';
 
 /** Number of columns in the grid */
@@ -13,7 +14,7 @@ export class GameSelectorGridComponent {
   /** Grid array to initialize the HTML element */
   grid: any[][] = [];
 
-  constructor(public gameService: GameService) {
+  constructor(public gameService: GameService, private router: Router) {
     /** Initialize grid */
     for (
       let i = 0;
@@ -32,7 +33,7 @@ export class GameSelectorGridComponent {
 
   /** Opens the clicked element  */
   open_full(mode: number) {
-    // this.game_service.current_view = 1;
     this.gameService.selectedGamemode = this.gameService.gameModes[mode];
+    this.router.navigate(['/main/selector/full']);
   }
 }

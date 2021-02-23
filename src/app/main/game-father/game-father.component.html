@@ -1,13 +1,3 @@
-<app-game-selector *ngIf="this.gameService.mode == null"></app-game-selector>
+<app-game-header></app-game-header>
 
-<app-game-header *ngIf="this.gameService.mode != null"></app-game-header>
-
-<app-game-mode-write *ngIf="this.gameService.mode === 0"></app-game-mode-write>
-
-<app-game-mode-guess *ngIf="this.gameService.mode === 1"></app-game-mode-guess>
-
-<app-game-mode-find *ngIf="this.gameService.mode === 2"></app-game-mode-find>
-
-<app-game-mode-drag *ngIf="this.gameService.mode === 3"></app-game-mode-drag>
-
-<app-game-mode-fill *ngIf="this.gameService.mode === 4"></app-game-mode-fill>
+<ion-router-outlet style="margin-top: calc(50px + 0.5em);" [animated]="true"></ion-router-outlet>

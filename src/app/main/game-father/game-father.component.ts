@@ -18,7 +18,7 @@ export class GameFatherComponent implements OnDestroy {
 
   goBack() {
     // this.gameService.current_view = 1;
-    this.gameService.mode = null;
+    // this.gameService.mode = null;
   }
 
   ngOnDestroy() {
