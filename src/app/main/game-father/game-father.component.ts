@@ -1,7 +1,7 @@
-import { GameService } from './../../services/game/game.service';
+import { GameService } from '../../../shared/services/game/game.service';
 import { Component, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
 import { Platform } from '@ionic/angular';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-game-father',

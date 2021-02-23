@@ -1,11 +1,22 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { GameFatherComponent } from './game-father/game-father.component';
 import { MainPage } from './main.page';
 
 const routes: Routes = [
   {
     path: '',
     component: MainPage,
+    children: [
+      {
+        path: 'selector',
+        component: GameFatherComponent
+      },
+      {
+        path: 'game',
+        component: GameFatherComponent
+      }
+    ]
   },
 ];
 

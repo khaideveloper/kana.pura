@@ -1,6 +1,6 @@
 import { GameService } from 'src/shared/services/game/game.service';
 import { Component } from '@angular/core';
-import { KanaSelectorComponent } from '../kana-selector/kana-selector.component';
+import { KanaSelectorComponent } from '../../../../shared/components/kana-selector/kana-selector.component';
 import { ModalController } from '@ionic/angular';
 
 @Component({

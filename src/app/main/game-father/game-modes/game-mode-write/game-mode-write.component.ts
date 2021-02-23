@@ -1,10 +1,10 @@
-import { GameService } from './../../../services/game/game.service';
 import { Component, OnDestroy } from '@angular/core';
 import {
   KANA_DICTIONARY_ELEMENT,
   random_kana,
 } from 'src/shared/models/kana.model';
 import { Subscription } from 'rxjs';
+import { GameService } from 'src/shared/services/game/game.service';
 
 @Component({
   selector: 'app-game-mode-write',
