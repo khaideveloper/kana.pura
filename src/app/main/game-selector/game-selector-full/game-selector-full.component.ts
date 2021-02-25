@@ -11,7 +11,14 @@ import { Router } from '@angular/router';
 })
 export class GameSelectorFullComponent implements OnDestroy {
   backSub: Subscription;
-  constructor(public gameService: GameService, private platform: Platform, private router: Router) {
+  constructor(
+    public gameService: GameService,
+    private platform: Platform,
+    private router: Router
+  ) {
+    if (this.gameService.selectedGamemode == null) {
+      this.router.navigate(['/main/selector/grid']);
+    }
     this.backSub = this.platform.backButton.subscribeWithPriority(10, () => {
       this.goBack();
     });
@@ -22,7 +29,9 @@ export class GameSelectorFullComponent implements OnDestroy {
   }
 
   play() {
-    this.router.navigate(['/main/game/' + this.gameService.selectedGamemode.src]);
+    this.router.navigate([
+      '/main/game/' + this.gameService.selectedGamemode.src,
+    ]);
   }
 
   ngOnDestroy() {

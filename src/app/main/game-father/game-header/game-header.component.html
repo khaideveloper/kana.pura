@@ -1,5 +1,8 @@
 <div class="container">
   <ion-button (click)="this.kana_selector()">あ</ion-button>
+  <ion-button (click)="this.gameService.showPopover($event)">
+    <ion-icon name="settings"></ion-icon>
+  </ion-button>
   <ion-button [routerLink]="['/main/selector/grid']">
     <ion-icon name="grid"></ion-icon>
   </ion-button>

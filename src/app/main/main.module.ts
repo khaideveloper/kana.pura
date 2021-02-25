@@ -18,6 +18,7 @@ import { GameModeFillComponent } from './game-father/game-modes/game-mode-fill/g
 import { GameModeFindComponent } from './game-father/game-modes/game-mode-find/game-mode-find.component';
 import { GameModeGuessComponent } from './game-father/game-modes/game-mode-guess/game-mode-guess.component';
 import { GameModeWriteComponent } from './game-father/game-modes/game-mode-write/game-mode-write.component';
+import { SettingsSaverComponent } from 'src/shared/services/storage/settings-saver/settings-saver.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -50,6 +51,7 @@ export function createTranslateLoader(http: HttpClient) {
     GameModeWriteComponent,
     KanaSelectorComponent,
     GameHeaderComponent,
+    SettingsSaverComponent,
   ],
 })
 export class MainPageModule {}

@@ -1,6 +1,8 @@
+import { PopoverController } from '@ionic/angular';
 import { GAME_MODES } from './../../models/game.model';
 import { Injectable } from '@angular/core';
 import { KanaFilter } from 'src/shared/models/kana.model';
+import { SettingsSaverComponent } from '../storage/settings-saver/settings-saver.component';
 
 /** Different modes for the selector */
 export enum SELECTOR_VIEW_MODE {
@@ -36,7 +38,9 @@ export class GameService {
   /** Reference to the kana selector modal */
   kanaModal: HTMLIonModalElement;
 
-  constructor() {
+  onpress = false;
+
+  constructor(private popoverController: PopoverController) {
     this.filter = new KanaFilter();
     this.filter.toggle_all();
     // Init of the gamemode array
@@ -48,8 +52,20 @@ export class GameService {
           name: 'GAMEMODE_' + key + '_NAME',
           desc: 'GAMEMODE_' + key + '_DESC',
           icon: 'GAMEMODE_' + key + '_ICON',
-          src: key.toLowerCase()
+          src: key.toLowerCase(),
         });
       });
+  }
+
+  async showPopover(event: MouseEvent) {
+    const popover = await this.popoverController.create({
+      component: SettingsSaverComponent,
+      showBackdrop: false,
+      backdropDismiss: true,
+      translucent: true,
+      event: event,
+      animated: true,
+    });
+    return await popover.present();
   }
 }

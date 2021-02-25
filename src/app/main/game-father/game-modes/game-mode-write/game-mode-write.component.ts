@@ -30,8 +30,6 @@ export class GameModeWriteComponent implements OnDestroy {
   /** Filter changed subscription */
   filterchangeSub: Subscription;
 
-  onpress = false;
-
   constructor(public gameService: GameService) {
     this.new_guess();
     // Event on filter change
@@ -50,6 +48,7 @@ export class GameModeWriteComponent implements OnDestroy {
 
   /** Change the symbol to guess */
   new_guess() {
+    this.input = '';
     this.guess = random_kana(this.gameService.filter);
   }
 
@@ -58,7 +57,10 @@ export class GameModeWriteComponent implements OnDestroy {
     if (this.input == null || this.input === '') {
       return;
     }
-    if (this.onpress && this.input.length !== this.guess.values[0].length) {
+    if (
+      this.gameService.onpress &&
+      this.input.length !== this.guess.values[0].length
+    ) {
       return;
     }
     if (this.guess.values.includes(this.input.toLowerCase())) {
@@ -67,7 +69,6 @@ export class GameModeWriteComponent implements OnDestroy {
       this.incorrect++;
     }
     this.total++;
-    this.input = '';
     this.new_guess();
   }
 
@@ -78,7 +79,7 @@ export class GameModeWriteComponent implements OnDestroy {
   }
 
   input_filter() {
-    if (this.onpress) {
+    if (this.gameService.onpress) {
       this.try_guess();
     }
   }
