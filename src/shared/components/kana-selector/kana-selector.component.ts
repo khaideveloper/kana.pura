@@ -1,8 +1,9 @@
-import { KanaDictionaryElement } from './../../models/kana.model';
+import { KANA_GROUP_TITLES } from './../../models/kana.model';
 import { GameService } from './../../services/game/game.service';
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { KANA_DICTIONARY } from 'src/shared/models/kana.model';
 import { ModalController } from '@ionic/angular';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-kana-selector',
@@ -12,6 +13,15 @@ import { ModalController } from '@ionic/angular';
 export class KanaSelectorComponent {
   /** Kana values to show */
   _KANA_DICTIONARY = KANA_DICTIONARY;
+
+  /** Kana group titles */
+  _KANA_GROUP_TITLES = KANA_GROUP_TITLES;
+
+  /** All the elements in a group made to be a single string */
+  mixed_kana_elements: {
+    HIRAGANA: string[],
+    KATAKANA: string[]
+  };
 
   kanas: ('HIRAGANA' | 'KATAKANA')[] = ['HIRAGANA', 'KATAKANA'];
 
@@ -25,6 +35,17 @@ export class KanaSelectorComponent {
     public gameService: GameService,
     public modalController: ModalController
   ) {
+    this.mixed_kana_elements = {
+      HIRAGANA: new Array<string>(),
+      KATAKANA: new Array<string>()
+    };
+    this.kanas.forEach((kana) => {
+      this._KANA_DICTIONARY[kana].forEach((group) => {
+        let value = '';
+        group.forEach((element) => { value += element.kana; });
+        this.mixed_kana_elements[kana].push(value);
+      });
+    });
     this.update_active_groups();
   }
 
@@ -41,7 +62,7 @@ export class KanaSelectorComponent {
       HIRAGANA: [],
       KATAKANA: [],
     };
-    ['HIRAGANA', 'KATAKANA'].forEach((kana) => {
+    this.kanas.forEach((kana) => {
       this.gameService.filter[kana + '_GROUPS'].forEach((group: boolean[]) => {
         let active = true;
         group.forEach((element) => {

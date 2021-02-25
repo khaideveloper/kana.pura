@@ -5,6 +5,73 @@ export interface KanaDictionaryElement {
   values: string[];
 }
 
+export const KANA_GROUP_TITLES: {
+  HIRAGANA: string[];
+  KATAKANA: string[];
+} = {
+  HIRAGANA: [
+    "KANA_GROUP_0",
+    "KANA_GROUP_1",
+    "KANA_GROUP_2",
+    "KANA_GROUP_3",
+    "KANA_GROUP_4",
+    "KANA_GROUP_5",
+    "KANA_GROUP_6",
+    "KANA_GROUP_8",
+    "KANA_GROUP_9",
+    "KANA_GROUP_10",
+    "KANA_GROUP_11",
+    "KANA_GROUP_12",
+    "KANA_GROUP_13",
+    "KANA_GROUP_14",
+    "KANA_GROUP_15",
+    "KANA_GROUP_16",
+    "KANA_GROUP_17",
+    "KANA_GROUP_18",
+    "KANA_GROUP_19",
+    "KANA_GROUP_20",
+    "KANA_GROUP_21",
+    "KANA_GROUP_22",
+    "KANA_GROUP_23",
+    "KANA_GROUP_24",
+    "KANA_GROUP_25",
+    "KANA_GROUP_26"
+  ],
+  KATAKANA: [
+    "KANA_GROUP_0",
+    "KANA_GROUP_1",
+    "KANA_GROUP_2",
+    "KANA_GROUP_3",
+    "KANA_GROUP_4",
+    "KANA_GROUP_5",
+    "KANA_GROUP_6",
+    "KANA_GROUP_8",
+    "KANA_GROUP_9",
+    "KANA_GROUP_10",
+    "KANA_GROUP_11",
+    "KANA_GROUP_12",
+    "KANA_GROUP_13",
+    "KANA_GROUP_14",
+    "KANA_GROUP_15",
+    "KANA_GROUP_16",
+    "KANA_GROUP_17",
+    "KANA_GROUP_18",
+    "KANA_GROUP_19",
+    "KANA_GROUP_20",
+    "KANA_GROUP_21",
+    "KANA_GROUP_22",
+    "KANA_GROUP_23",
+    "KANA_GROUP_24",
+    "KANA_GROUP_25",
+    "KANA_GROUP_26",
+    "KATAKANA_GROUP_27",
+    "KATAKANA_GROUP_28",
+    "KATAKANA_GROUP_29",
+    "KATAKANA_GROUP_30",
+    "KATAKANA_GROUP_31"
+  ],
+};
+
 export const KANA_DICTIONARY: {
   HIRAGANA: KanaDictionaryElement[][];
   KATAKANA: KanaDictionaryElement[][];
@@ -465,7 +532,7 @@ export function random_kana(filter: KanaFilter): KanaDictionaryElement {
       : filter.hasHIRAGANA
       ? 'HIRAGANA'
       : 'KATAKANA';
-  const numbers = filter.get_numbers( kana as 'HIRAGANA' | 'KATAKANA');
+  const numbers = filter.get_numbers(kana as 'HIRAGANA' | 'KATAKANA');
 
   let element = lastElement;
   if (lastElement === element) {
