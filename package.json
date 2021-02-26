@@ -5,6 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ionic serve -l",
+    "open": "ionic capacitor open android",
     "android": "ionic capacitor run android --livereload --external",
     "build": "ionic capacitor build android --prod --release",
     "sync": "npx cap copy",
