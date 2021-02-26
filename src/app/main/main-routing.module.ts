@@ -1,6 +1,6 @@
-import { GameSelectorFullComponent } from './game-selector/game-selector-full/game-selector-full.component';
-import { GameSelectorGridComponent } from './game-selector/game-selector-grid/game-selector-grid.component';
-import { GameSelectorComponent } from './game-selector/game-selector.component';
+import { GameSelectorFullComponent } from './game-home/game-selector-full/game-selector-full.component';
+import { GameSelectorGridComponent } from './game-home/game-selector-grid/game-selector-grid.component';
+import { GameHomeComponent } from './game-home/game-home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { GameFatherComponent } from './game-father/game-father.component';
@@ -19,11 +19,11 @@ const routes: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'selector'
+        redirectTo: 'home'
       },
       {
-        path: 'selector',
-        component: GameSelectorComponent,
+        path: 'home',
+        component: GameHomeComponent,
         children: [
           {
             path: '',
@@ -47,7 +47,7 @@ const routes: Routes = [
           {
             path: '',
             pathMatch: 'full',
-            redirectTo: 'main/selector/grid'
+            redirectTo: 'main/home/grid'
           },
           {
             path: 'drag',

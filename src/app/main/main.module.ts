@@ -10,9 +10,9 @@ import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { GameHeaderComponent } from 'src/app/main/game-father/game-header/game-header.component';
 import { KanaSelectorComponent } from 'src/shared/components/kana-selector/kana-selector.component';
-import { GameSelectorComponent } from './game-selector/game-selector.component';
-import { GameSelectorFullComponent } from './game-selector/game-selector-full/game-selector-full.component';
-import { GameSelectorGridComponent } from './game-selector/game-selector-grid/game-selector-grid.component';
+import { GameHomeComponent } from './game-home/game-home.component';
+import { GameSelectorFullComponent } from './game-home/game-selector-full/game-selector-full.component';
+import { GameSelectorGridComponent } from './game-home/game-selector-grid/game-selector-grid.component';
 import { GameModeDragComponent } from './game-father/game-modes/game-mode-drag/game-mode-drag.component';
 import { GameModeFillComponent } from './game-father/game-modes/game-mode-fill/game-mode-fill.component';
 import { GameModeFindComponent } from './game-father/game-modes/game-mode-find/game-mode-find.component';
@@ -40,7 +40,7 @@ export function createTranslateLoader(http: HttpClient) {
   ],
   declarations: [
     MainPage,
-    GameSelectorComponent,
+    GameHomeComponent,
     GameSelectorFullComponent,
     GameSelectorGridComponent,
     GameFatherComponent,

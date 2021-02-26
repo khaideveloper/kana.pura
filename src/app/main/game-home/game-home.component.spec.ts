@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { GameSelectorComponent } from './game-selector.component';
+import { GameHomeComponent } from './game-home.component';
 
-describe('GameSelectorComponent', () => {
-  let component: GameSelectorComponent;
-  let fixture: ComponentFixture<GameSelectorComponent>;
+describe('GameHomeComponent', () => {
+  let component: GameHomeComponent;
+  let fixture: ComponentFixture<GameHomeComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [GameSelectorComponent],
+      declarations: [GameHomeComponent],
       imports: [IonicModule.forRoot()],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(GameSelectorComponent);
+    fixture = TestBed.createComponent(GameHomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

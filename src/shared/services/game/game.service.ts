@@ -2,7 +2,6 @@ import { PopoverController } from '@ionic/angular';
 import { GAME_MODES } from './../../models/game.model';
 import { Injectable } from '@angular/core';
 import { KanaFilter } from 'src/shared/models/kana.model';
-import { SettingsSaverComponent } from '../storage/settings-saver/settings-saver.component';
 
 /** Different modes for the selector */
 export enum SELECTOR_VIEW_MODE {
@@ -55,17 +54,5 @@ export class GameService {
           src: key.toLowerCase(),
         });
       });
-  }
-
-  async showPopover(event: MouseEvent) {
-    const popover = await this.popoverController.create({
-      component: SettingsSaverComponent,
-      showBackdrop: false,
-      backdropDismiss: true,
-      translucent: true,
-      event: event,
-      animated: true,
-    });
-    return await popover.present();
   }
 }
